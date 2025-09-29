@@ -1,0 +1,21 @@
+.intro {
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+margin-top: 30px;
+color: black;
+}
+
+.text {
+  font-size: 1.1rem;
+  color: #000000;
+}

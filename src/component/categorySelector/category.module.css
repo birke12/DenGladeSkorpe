@@ -1,0 +1,134 @@
+.categoryHeader {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.categoryTitle {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+.categoryImage {
+  height: 9.5rem;
+}
+
+.categoryWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  background-color: #f6f0ee;
+}
+
+.categoryItem {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryName {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.menuContainer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.menuTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.categoryItem:hover {
+  transform: scale(1.05);
+}
+
+.dishesWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 30px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.dishItem {
+  width: 100px;
+  text-align: center;
+  position: relative;
+}
+
+.dishImage {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  height: 100px;
+  object-fit: cover;
+}
+
+.dishName {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.categoryItem,
+.dishItem {
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 6px;
+}
+
+.dishName,
+.categoryName {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}

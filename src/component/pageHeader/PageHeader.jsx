@@ -1,6 +1,6 @@
 import styles from "./PageHeader.module.css";
 
-const PageHeader = ({ title, subTitle, backgroundImage }) => {
+const PageHeader = ({ title, subTitle, upperTitle, backgroundImage }) => {
   return (
     <header
       className={styles.pageHeader}
@@ -8,10 +8,12 @@ const PageHeader = ({ title, subTitle, backgroundImage }) => {
     >
       <div className={styles.overlay}>
         <div className={styles.textContainer}>
-          <h1>{title}</h1>
           <div className={styles.titleContainer}>
-            <p className={styles.title}>{title}</p>
-            <p className={styles.subTitle}>{subTitle}</p>
+          <h4>{upperTitle}</h4>
+          <h1>{title}</h1>
+          <h2 className={styles.subTitle}>{subTitle}</h2>
+           
+            
           </div>
         </div>
       </div>
