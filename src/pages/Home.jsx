@@ -1,11 +1,13 @@
-/* import PageHeader from "../components/pageHeader/PageHeader"; */
-
+import PageHeader from "../component/pageHeader/PageHeader";
 
 const Home = () => {
   return (
     <section>
-   {/*    <PageHeader /> */}
- 
+      <PageHeader
+        title="Blog Arkiv"
+        subtitle="Forside"
+        backgroundImage="/images/headerImg.png"
+      />
     </section>
   );
 };

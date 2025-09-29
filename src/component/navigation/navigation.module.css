@@ -1,0 +1,144 @@
+.navbar {
+  width: 100%;
+
+  color: #fff;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  z-index: 1000;
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartBurgerContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  height: 55px;
+  width: auto;
+}
+
+.basketIcon img {
+  height: 70px;
+  width: auto;
+ 
+
+}
+
+.menuToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50px;
+  height: 55px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menuToggle span {
+  display: block;
+  height: 6px;
+  background: #ffffff;
+ 
+  transition: 0.3s;
+}
+
+.menuToggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 20px);
+}
+
+.menuToggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -20px);
+}
+
+
+.navOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(0, 0, 0, 0.95);
+  overflow: hidden;
+  transition: height 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+}
+
+.navOverlay.active {
+  height: 100vh;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 2rem;
+  padding-top: 4rem;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.navLinks li {
+  margin: 1rem 0;
+}
+
+.navLinks a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .menuToggle {
+    display: none;
+  }
+
+  .navOverlay {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: none;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .navLinks {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navLinks li {
+    margin: 0 1rem;
+  }
+
+  .navLinks a {
+    font-size: 1rem;
+  }
+}

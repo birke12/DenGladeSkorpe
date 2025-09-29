@@ -15,6 +15,11 @@ const Navigation = () => {
         <a href="/" className={styles.logo}>
           <img src="/images/logo.png" alt="logo" />
         </a>
+        <div className={styles.cartBurgerContainer}>
+
+        <a href="/basket" className={styles.basketIcon}>
+          <img src="/images/basket_icon.png" alt="basket" />
+        </a>
         <div
           className={`${styles.menuToggle} ${isOpen ? styles.open : ""}`}
           onClick={toggleMenu}
@@ -22,6 +27,7 @@ const Navigation = () => {
           <span></span>
           <span></span>
           <span></span>
+        </div>
         </div>
 
         <div className={`${styles.navOverlay} ${isOpen ? styles.active : ""}`}>

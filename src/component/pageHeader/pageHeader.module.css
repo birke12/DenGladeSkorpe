@@ -1,0 +1,26 @@
+.pageHeader {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  min-height: 100vh;       /* fylder hele skærmhøjden */
+ top: 0;     /* så den starter under navbaren */
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(40, 40, 40, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+ 
+}
+
+
