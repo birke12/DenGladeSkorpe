@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import styles from "./category.module.css";
 
@@ -7,6 +8,7 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [dishes, setDishes] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,14 +84,23 @@ const Categories = () => {
       {/* Dishes */}
       <div className={styles.dishesWrapper}>
         {limitedDishes.map((dish) => (
-          <div key={dish._id} className={styles.dishItem}>
+          <Link
+            key={dish._id}
+            to={`/dish/${dish._id}`}
+            className={styles.dishItem}
+            style={{
+              cursor: "pointer",
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
             <span className={styles.dishName}>{dish.title}</span>
             <img
               src={dish.image}
               alt={dish.title}
               className={styles.dishImage}
             />
-          </div>
+          </Link>
         ))}
       </div>
     </div>

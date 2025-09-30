@@ -1,0 +1,171 @@
+.dishDetailContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.dishImage {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  object-fit: cover;
+}
+
+.infoSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f6f0ee;
+  text-align: center;
+  padding: 3rem;
+}
+
+.dishTitle {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px -1px 0 #000, 2px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
+  margin-top: 2rem;
+}
+
+.ingredientsSection {
+  width: 100%;
+}
+
+.ingredientsSection ul {
+  padding-left: 1.2rem;
+  margin: 0;
+  padding-top: 1rem;
+}
+
+.ingredientsSection li {
+  padding-top: 1rem;
+}
+
+.ingredientItem {
+  margin-bottom: 2.7rem;
+  font-size: 1.4rem;
+}
+
+.buySection {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.sizePicker {
+  position: relative;
+  width: 320px;
+  padding: 1rem 0.5rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+}
+
+.selectContainer h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+.sizePicker select {
+  width: 320px;
+  padding: 1rem 2.5rem 1rem 1rem;
+margin-top: 30px;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  z-index: 2;
+  background: #f6f0ee;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.33);
+}
+
+.sizePicker .fa-chevron-down {
+  position: absolute;
+  pointer-events: none;
+  color: #b86b2b;
+  font-size: 1.2rem;
+  z-index: 3;
+}
+
+.chevronIcon {
+  position: absolute;
+  
+  right: 10px;
+  top: 40%;
+  transform: translateY(60%);
+  pointer-events: none;
+  color: #000000;
+  font-size: 1.3rem;
+  z-index: 3;
+}
+
+.priceContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+}
+
+.addToBasketBtn {
+  background: #3a3a3a;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 1.5rem 2.5rem;
+  font-size: 2.1rem;
+  font-weight: 500;
+  box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 5rem;
+}
+
+.addToBasketBtn:hover {
+  background: #a05a22;
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.selectContainer label {
+  text-align: center;
+  width: 100%;
+}
+
+.selectRow {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}

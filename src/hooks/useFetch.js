@@ -44,6 +44,8 @@ const useFetch = () => {
       id
         ? handleRequest(`http://localhost:3042/dish/${id}`)
         : setError("No id provided"),
+
+    employees: () => handleRequest(`http://localhost:3042/employees`), 
   };
 
   const post = {

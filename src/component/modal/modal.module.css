@@ -1,0 +1,41 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalOverlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(55, 55, 55, 0.75);
+  z-index: 1;
+}
+
+.modalContent {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+ width: 100%;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  opacity: 80%;
+  font-size: 1rem;
+}
+.modalContent p {
+ 
+  font-size: 1.5rem;
+}
