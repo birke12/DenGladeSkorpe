@@ -1,6 +1,6 @@
 .textContainer {
   padding: 20px;
-  background-color: #f9f9f9;
+
   border-radius: 8px;
   margin: 30px;
   margin-top: 60px;
@@ -27,4 +27,9 @@
 .employeeCard {
   flex: 0 1 calc(50% - 2rem);
   box-sizing: border-box;
+}
+.employeeName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 10px 0 5px 0;
 }

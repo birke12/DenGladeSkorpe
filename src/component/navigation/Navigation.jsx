@@ -1,32 +1,53 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./navigation.module.css";
-
+import useAuth from "../../hooks/useAuth";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [burgerColor, setBurgerColor] = useState("#fff");
+  const [navbarBg, setNavbarBg] = useState(false);
+  const { signedIn, user, signOut } = useAuth();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector(".pageHeader");
+      if (header) {
+        const headerBottom = header.getBoundingClientRect().bottom;
+        if (headerBottom <= 0) {
+          setNavbarBg(true);
+          setBurgerColor("#000");
+        } else {
+          setNavbarBg(false);
+          setBurgerColor("#fff");
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${navbarBg ? styles.navbarBg : ""}`}>
       <div className={styles.navbarContainer}>
-        <a href="/" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           <img src="/images/logo.png" alt="logo" />
-        </a>
+        </Link>
         <div className={styles.cartBurgerContainer}>
-          <a href="/basket" className={styles.basketIcon}>
+          <Link to="/basket" className={styles.basketIcon}>
             <img src="/images/basket_icon.png" alt="basket" />
-          </a>
+          </Link>
           <div
             className={`${styles.menuToggle} ${isOpen ? styles.open : ""}`}
             onClick={toggleMenu}
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span style={{ background: burgerColor }}></span>
+            <span style={{ background: burgerColor }}></span>
+            <span style={{ background: burgerColor }}></span>
           </div>
         </div>
 
@@ -37,7 +58,6 @@ const Navigation = () => {
                 Home
               </Link>
             </li>
-      
             <li>
               <Link to="/cart" onClick={toggleMenu}>
                 Kurv
@@ -45,9 +65,39 @@ const Navigation = () => {
             </li>
             <li>
               <Link to="/employees" onClick={toggleMenu}>
-                Medarbejdere
+                Personalet
               </Link>
             </li>
+
+            {/* Hvis bruger er logget ind og er admin */}
+            {signedIn && user.role === "admin" && (
+              <li>
+                <Link to="/backoffice" onClick={toggleMenu}>
+                  Backoffice
+                </Link>
+              </li>
+            )}
+
+            {/* Hvis ikke logget ind → vis login */}
+            {!signedIn ? (
+              <li>
+                <Link to="/login" onClick={toggleMenu}>
+                  Login
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <button
+                  onClick={() => {
+                    signOut();
+                    toggleMenu();
+                  }}
+                  className={styles.logoutBtn}
+                >
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

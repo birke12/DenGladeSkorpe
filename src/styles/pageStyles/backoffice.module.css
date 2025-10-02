@@ -1,0 +1,153 @@
+.backoffice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.backoffice h1 {
+  font-size: 2.6rem;
+  color: #333;
+}
+
+.backoffice h2 {
+  font-size: 2rem;
+  color: #555;
+}
+
+.backoffice table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
+  margin: 1rem 0;
+}
+
+.backoffice th,
+.backoffice td {
+  border: 1px solid #000;
+}
+
+.backoffice th {
+  text-align: left;
+}
+
+.backoffice th,
+.backoffice td {
+  padding: 0.5rem;
+}
+
+.backoffice table button,
+.form button {
+  background: #bdbdbd !important;
+  color: #222 !important;
+  border: 1px solid #888 !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 1.2rem !important;
+  font-size: 1rem !important;
+  cursor: pointer;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.backoffice table button:hover,
+.form button:hover {
+  background: #888 !important;
+  color: #fff !important;
+}
+
+.backoffice td img {
+  max-width: 100px;
+  max-height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.formTitle {
+  font-family: "Kurale", serif;
+  color: #000000 !important;
+}
+
+.ingredientsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+    border: none !important;
+}
+
+.forms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.forms section {
+  width: 100%;
+}
+
+.forms h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.select {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.form input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.form button {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 3rem;
+}
+
+.ingredientsCell {
+  white-space: normal;
+  word-break: break-word;
+  min-width: 180px;
+  max-width: 350px;
+
+}
+
+@media (max-width: 768px) {
+  .forms {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+    padding: 0 1rem;
+    margin: 2rem auto;
+    max-width: 100%;
+  }
+}
