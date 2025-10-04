@@ -6,6 +6,7 @@ import CartPage from "./pages/Cart.jsx";
 import Employees from "./pages/Employees.jsx";
 import Backoffice from "./pages/Backoffice.jsx";
 import Login from "./component/login/Login.jsx";
+import Contact from "./pages/Contact.jsx";  
 
 function App() {
   const routes = useRoutes([
@@ -15,6 +16,8 @@ function App() {
     { path: "/employees", element: <Employees /> },
     { path: "/backoffice", element: <Backoffice /> },
     { path: "/login", element: <Login /> },
+    { path: "/contact", element: <Contact /> },
+
 
   ]);
 

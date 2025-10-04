@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./navigation.module.css";
 import useAuth from "../../hooks/useAuth";
+import { useCart } from "../context/CartContext.jsx";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [burgerColor, setBurgerColor] = useState("#fff");
   const [navbarBg, setNavbarBg] = useState(false);
   const { signedIn, user, signOut } = useAuth();
+  const { cart } = useCart();
+
+  // Calculate total number of items in cart
+  const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,9 +43,23 @@ const Navigation = () => {
           <img src="/images/logo.png" alt="logo" />
         </Link>
         <div className={styles.cartBurgerContainer}>
-          <Link to="/basket" className={styles.basketIcon}>
-            <img src="/images/basket_icon.png" alt="basket" />
-          </Link>
+          <div className={styles.basketWrapper}>
+            <Link
+              to="/cart"
+              className={styles.basketIcon}
+              onClick={() => isOpen && toggleMenu()}
+            >
+              <img src="/images/basket_icon.png" alt="basket" />
+            </Link>
+            {totalItems > 0 && (
+              <span
+                className={styles.cartBadge}
+                aria-label={`Antal varer i kurv: ${totalItems}`}
+              >
+                {totalItems}
+              </span>
+            )}
+          </div>
           <div
             className={`${styles.menuToggle} ${isOpen ? styles.open : ""}`}
             onClick={toggleMenu}
@@ -66,6 +85,11 @@ const Navigation = () => {
             <li>
               <Link to="/employees" onClick={toggleMenu}>
                 Personalet
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={toggleMenu}>
+                Kontakt
               </Link>
             </li>
 

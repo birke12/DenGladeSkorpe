@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  padding-top: 7rem;
 }
 
 .backoffice h1 {
@@ -72,7 +73,7 @@
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1rem;
-    border: none !important;
+  border: none !important;
 }
 
 .forms {
@@ -137,7 +138,6 @@
   word-break: break-word;
   min-width: 180px;
   max-width: 350px;
-
 }
 
 @media (max-width: 768px) {
