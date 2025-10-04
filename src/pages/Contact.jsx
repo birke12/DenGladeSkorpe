@@ -2,24 +2,57 @@ import React, { useState } from "react";
 import styles from "../styles/pageStyles/contact.module.css";
 import PageHeader from "../component/pageHeader/PageHeader";
 import Footer from "../component/footer/Footer";
+import useFetch from "../hooks/useFetch";
 
 const Contact = () => {
+  const { post, isLoading, error } = useFetch();
   const [formData, setFormData] = useState({
     navn: "",
     emne: "",
     beskrivelse: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Message sent:", formData);
-    // Reset form
-    setFormData({ navn: "", emne: "", beskrivelse: "" });
+    setIsSubmitting(true);
+    setSubmitSuccess(false);
+
+    try {
+      // Her laver jeg formdata om til engelsk fordi API'et forventer engelske felter
+      const messageData = {
+        name: formData.navn,
+        subject: formData.emne,
+        description: formData.beskrivelse,
+        status: false, // Sætter til ulæst som standard
+      };
+
+      console.log("Prøver at sende besked:", messageData);
+      console.log("API URL:", "http://localhost:3042/messages");
+
+      const result = await post.messages(messageData);
+      console.log("Besked sendt!", result);
+      setSubmitSuccess(true);
+      // Nulstil formularen så den er tom igen
+      setFormData({ navn: "", emne: "", beskrivelse: "" });
+
+      // Vis success besked i 3 sekunder og skjul den så igen
+      setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 3000);
+    } catch (err) {
+      console.error("Der skete en fejl ved afsendelse:", err);
+      console.error("Fejlbesked:", err.message);
+      console.error("Hele fejl objektet:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -83,12 +116,27 @@ const Contact = () => {
               required
             ></textarea>
           </div>
-        <div className={styles.buttonContainer}>
-            <button type="submit" className={styles.submitButton}>
-                Send
+          <div className={styles.buttonContainer}>
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sender..." : "Send"}
             </button>
-        </div>
-        
+          </div>
+
+          {submitSuccess && (
+            <div className={styles.successMessage}>
+              ✅ Din besked er sendt! Vi vender tilbage til dig hurtigst muligt.
+            </div>
+          )}
+
+          {error && (
+            <div className={styles.errorMessage}>
+              ❌ Der opstod en fejl. Prøv venligst igen.
+            </div>
+          )}
         </form>
       </div>
       <Footer />

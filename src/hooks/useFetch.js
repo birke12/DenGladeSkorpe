@@ -45,7 +45,13 @@ const useFetch = () => {
         ? handleRequest(`http://localhost:3042/dish/${id}`)
         : setError("No id provided"),
 
-    employees: () => handleRequest(`http://localhost:3042/employees`), 
+    employees: () => handleRequest(`http://localhost:3042/employees`),
+
+    messages: () => handleRequest(`http://localhost:3042/messages`),
+    message: (id) =>
+      id
+        ? handleRequest(`http://localhost:3042/messages/${id}`)
+        : setError("No id provided"),
   };
 
   const post = {
@@ -58,6 +64,11 @@ const useFetch = () => {
       handleRequest(`http://localhost:3042/dishes`, {
         method: "POST",
         body: JSON.stringify(dish),
+      }),
+    messages: (message) =>
+      handleRequest(`http://localhost:3042/message`, {
+        method: "POST",
+        body: JSON.stringify(message),
       }),
   };
 
@@ -77,6 +88,14 @@ const useFetch = () => {
             body: JSON.stringify(dish),
           })
         : setError("No id provided"),
+
+    messages: (id, message) =>
+      id
+        ? handleRequest(`http://localhost:3042/messages/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(message),
+          })
+        : setError("No id provided"),
   };
 
   const del = {
@@ -90,6 +109,13 @@ const useFetch = () => {
     dishes: (id) =>
       id
         ? handleRequest(`http://localhost:3042/dishes/${id}`, {
+            method: "DELETE",
+          })
+        : setError("No id provided"),
+
+    messages: (id) =>
+      id
+        ? handleRequest(`http://localhost:3042/message/${id}`, {
             method: "DELETE",
           })
         : setError("No id provided"),

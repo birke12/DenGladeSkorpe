@@ -95,11 +95,18 @@ const Navigation = () => {
 
             {/* Hvis bruger er logget ind og er admin */}
             {signedIn && user.role === "admin" && (
-              <li>
-                <Link to="/backoffice" onClick={toggleMenu}>
-                  Backoffice
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link to="/backoffice" onClick={toggleMenu}>
+                    Backoffice
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/backoffice/messages" onClick={toggleMenu}>
+                    Beskeder
+                  </Link>
+                </li>
+              </>
             )}
 
             {/* Hvis ikke logget ind → vis login */}
